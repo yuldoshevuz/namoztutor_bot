@@ -1,0 +1,34 @@
+{
+  "name": "namozvaqtlari_reminderbot",
+  "version": "1.0.0",
+  "description": "Prayer time reminder bot",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src",
+    "start": "pm2 start ecosystem.config.js",
+    "stop": "pm2 stop ecosystem.config.js",
+    "restart": "pm2 restart ecosystem.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuldoshevuz/namozvaqtlari_reminder_bot.git"
+  },
+  "keywords": [
+    "Namoz",
+    "vaqtlari",
+    "Namoz",
+    "eslatuvchi",
+    "Prayer",
+    "timer",
+    "reminder"
+  ],
+  "author": "Muhammadali <mukhammadaliweb@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^3.1.6",
+    "dotenv": "^16.4.5",
+    "moment": "^2.30.1",
+    "mongoose": "^8.3.0",
+    "telegraf": "^4.16.3"
+  }
+}

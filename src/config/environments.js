@@ -14,5 +14,5 @@ module.exports = {
     ERROR_CHANNEL,
     PORT: PORT || 4000,
     SERVER_URL,
-    ADMINS: ADMINS.split(',')
+    ADMINS: ADMINS ? ADMINS.split(',') : []
 }

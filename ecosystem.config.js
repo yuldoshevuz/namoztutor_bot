@@ -1,7 +1,7 @@
 module.exports = {
     apps: [{
         name: "Namoz vaqtlari App",
-        script: "./src",
+        script: "./src/app.js",
         args: "limit"
     }]
 }

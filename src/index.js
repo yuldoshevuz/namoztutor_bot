@@ -11,10 +11,7 @@ const isAuth = require('./middlewares/isAuth')
 const isAdmin = require('./middlewares/isAdmin')
 const errorHandler = require('./helpers/errorHandler')
 
-const store = Redis({
-    url: 'redis://127.0.0.1:6379',
-    config: { password: '85627566' }
-})
+const store = Redis({ url: 'redis://127.0.0.1:6379' })
 
 bot.use(session({ store }))
 bot.use(stage.middleware())

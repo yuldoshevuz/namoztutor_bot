@@ -4,15 +4,13 @@ const {
     DB_URI,
     ERROR_CHANNEL,
     PORT,
-    SERVER_URL,
-    ENV
+    SERVER_URL
 } = process.env
 
 module.exports = {
     BOT_TOKEN,
     DB_URI,
     ERROR_CHANNEL,
-    PORT,
-    SERVER_URL,
-    ENV
+    PORT: PORT || 4000,
+    SERVER_URL
 }

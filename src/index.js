@@ -8,6 +8,7 @@ const stage = require('./scenes')
 const isAuth = require('./middlewares/isAuth')
 const isAdmin = require('./middlewares/isAdmin')
 const errorHandler = require('./helpers/errorHandler')
+const { ENV } = require('./config/environments')
 
 bot.use(session())
 bot.use(stage.middleware())
@@ -17,6 +18,8 @@ bot.command('admin', isAdmin, async ctx => ctx.scene.enter('admin'))
 
 bot.catch(errorHandler)
 
-bot.launch(() => {
-    console.log('Bot launched')
-})
+if (ENV === 'DEV') {
+    bot.launch(() => {
+        console.log('Bot launched')
+    })
+}

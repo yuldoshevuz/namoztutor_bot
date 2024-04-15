@@ -11,6 +11,13 @@ app.use(express.json())
 app.use(bot.webhookCallback('/secret-path'))
 bot.telegram.setWebhook(SERVER_URL)
 
+app.get('/', (req, res) => {
+    res.status(200).json({
+        ok: true,
+        message: "Bot running"
+    })
+})
+
 app.listen(PORT, () => {
-    console.log(`Bot launched on port: ${PORT}`)
+    console.log(`Bot launched on port: ${PORT} ${new Date()}`)
 })

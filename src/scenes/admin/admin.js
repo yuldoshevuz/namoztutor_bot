@@ -48,8 +48,8 @@ adminScene.hears('📊 Statistika', async (ctx) => {
     }
 })
 
-
-adminScene.hears('📨 Yangi xabar', ctx => ctx.scene.enter('send-message:admin'))
+adminScene.hears('📨 Yangi xabar', ctx => ctx.scene.enter('send-message-users:admin'))
+adminScene.hears('🆔 Xabar yuborish', ctx => ctx.scene.enter('send-message-user:admin'))
 adminScene.hears('⬅️ Chiqish', (ctx) => ctx.scene.enter('start'))
 adminScene.on('callback_query', ctx => ctx.answerCbQuery(''))
 

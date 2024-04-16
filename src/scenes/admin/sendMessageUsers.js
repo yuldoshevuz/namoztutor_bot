@@ -5,9 +5,9 @@ const bot = require('../../core/bot')
 const User = require('../../models/User')
 const sendMessage = require('../../helpers/sendMessage')
 
-const sendMessageScene = new Scenes.BaseScene('send-message:admin')
+const sendMessageUsersScene = new Scenes.BaseScene('send-message-users:admin')
 
-sendMessageScene.enter(async (ctx) => {
+sendMessageUsersScene.enter(async (ctx) => {
     try {
         await ctx.replyWithHTML(
             '<b>Xabar matnini kiriting!</b>',
@@ -18,9 +18,9 @@ sendMessageScene.enter(async (ctx) => {
     }
 })
 
-sendMessageScene.hears('◀️ Ortga', ctx => ctx.scene.enter('admin'))
+sendMessageUsersScene.hears('◀️ Ortga', ctx => ctx.scene.enter('admin'))
 
-sendMessageScene.hears(async (text, ctx) => {
+sendMessageUsersScene.hears(async (text, ctx) => {
     try {
         if (!ctx.session.textMsg) {
             await ctx.reply(
@@ -36,7 +36,7 @@ sendMessageScene.hears(async (text, ctx) => {
     }
 })
 
-sendMessageScene.action( async (data, ctx) => {
+sendMessageUsersScene.action( async (data, ctx) => {
     try {
         ctx.answerCbQuery('')
         const { textMsg } = ctx.session
@@ -86,4 +86,4 @@ sendMessageScene.action( async (data, ctx) => {
     }
 })
 
-module.exports = sendMessageScene
+module.exports = sendMessageUsersScene

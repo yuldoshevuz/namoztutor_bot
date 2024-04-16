@@ -101,14 +101,16 @@ const sendMessageUserScene = new Scenes.WizardScene(
                             keyboards.admin()
                         )
                     }
-
-                    return ctx.scene.enter('admin', {}, true)
+                    
+                    ctx.scene.enter('admin', {}, true)
                 } else if (cbData === 'cancel') {
                     await ctx.editMessageReplyMarkup({})
                     await ctx.reply('☑️ Bekor qilindi', keyboards.admin())
 
-                    return ctx.scene.enter('admin', {}, true)
+                    ctx.scene.enter('admin', {}, true)
                 }
+                delete ctx.session.sendingUser
+                delete ctx.session.sendingText
             }
         } catch (error) {
             errorHandler(error, ctx)

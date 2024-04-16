@@ -23,11 +23,13 @@ sendMessageUsersScene.hears('◀️ Ortga', ctx => ctx.scene.enter('admin'))
 sendMessageUsersScene.hears(async (text, ctx) => {
     try {
         if (!ctx.session.textMsg) {
-            await ctx.reply(
-                `Xabar matni: \n\n${text}`,
+            const formattedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+
+            await ctx.replyWithHTML(
+                `<b>Xabar matni:</b> \n\n${formattedText}`,
                 keyboards.sendOrCancel()
             )
-            ctx.session.textMsg = text
+            ctx.session.textMsg = formattedText
         } else {
             ctx.deleteMessage()
         }

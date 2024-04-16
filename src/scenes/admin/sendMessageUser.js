@@ -30,7 +30,7 @@ const sendMessageUserScene = new Scenes.WizardScene(
 
                     if (!user) {
                         await ctx.replyWithHTML(
-                            '<b>Kechirasiz, foydalanuvchi topilmadi. Iltimos boshqa ID yoki foydalanuvchi nomini kiriting\n\nMisol uchun: 1933002694 yoki @yuldoshev_uz</b>',
+                            'Kechirasiz, foydalanuvchi topilmadi. Iltimos boshqa ID yoki foydalanuvchi nomini kiriting\n\n<b>Misol uchun: 1933002694 yoki @yuldoshev_uz</b>',
                             keyboards.cancelInline('admin')
                         )
                         return ctx.scene.enter('send-message-user:admin', {}, true)
@@ -55,7 +55,7 @@ const sendMessageUserScene = new Scenes.WizardScene(
 
                 if (cbData === 'sending-message:back') {
                     await ctx.editMessageText(
-                        '<b>Xabar yuboriladigan foydalanuvchini ID raqami yoki foydalanuvchi nomini kiriting\n\nMisol uchun: 1933002694 yoki @yuldoshev_uz</b>',
+                        'Xabar yuboriladigan foydalanuvchini ID raqami yoki foydalanuvchi nomini kiriting\n\n<b>Misol uchun: 1933002694 yoki @yuldoshev_uz</b>',
                         { parse_mode: 'HTML', ...keyboards.cancelInline('admin') }
                     )
                     return ctx.wizard.back()
@@ -123,7 +123,7 @@ sendMessageUserScene.enter(async (ctx) => {
             { reply_markup: { remove_keyboard: true } }
         )
         await ctx.replyWithHTML(
-            "<b>Xabar yuboriladigan foydalanuvchini ID raqami yoki foydalanuvchi nomini kiriting\n\nMisol uchun: 1933002694 yoki @yuldoshev_uz</b>",
+            "Xabar yuboriladigan foydalanuvchini ID raqami yoki foydalanuvchi nomini kiriting\n\n<b>Misol uchun: 1933002694 yoki @yuldoshev_uz</b>",
             keyboards.cancelInline('admin')
         )
     } catch (error) {

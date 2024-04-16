@@ -7,6 +7,7 @@ const stage = require('./scenes')
 const isAuth = require('./middlewares/isAuth')
 const isAdmin = require('./middlewares/isAdmin')
 const errorHandler = require('./helpers/errorHandler')
+const { session } = require('telegraf')
 
 bot.use(session())
 bot.use(stage.middleware())

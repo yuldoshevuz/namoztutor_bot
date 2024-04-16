@@ -13,7 +13,7 @@ exports.settings = () => Markup.keyboard([
 
 exports.admin = () => Markup.keyboard([
     [ Markup.button.text('📊 Statistika'), Markup.button.text('📨 Yangi xabar') ],
-    [ Markup.button.text('⬅️ Chiqish') ]
+    [ Markup.button.text('🆔 Xabar yuborish'), Markup.button.text('⬅️ Chiqish') ]
 ]).resize()
 
 exports.back = () => Markup.keyboard([
@@ -76,4 +76,12 @@ exports.reminder_time = (auth, remind_time) => Markup.inlineKeyboard([
 exports.sendOrCancel = () => Markup.inlineKeyboard([
     Markup.button.callback('🚫 Bekor qilish', 'cancel'),
     Markup.button.callback('✅ Yuborish', 'send-text')
+])
+
+exports.backInline = (cursor) => Markup.inlineKeyboard([
+    Markup.button.callback('⬅️ Ortga qaytish', `${cursor}:back`)
+])
+
+exports.cancelInline = (cursor) => Markup.inlineKeyboard([
+    Markup.button.callback('🚫 Bekor qilish', `${cursor}:cancel`)
 ])

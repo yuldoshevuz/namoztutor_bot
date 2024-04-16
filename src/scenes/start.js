@@ -31,8 +31,10 @@ startScene.hears('🕔 Namoz vaqtlari', async (ctx) => {
 startScene.hears('👤 Profilim', async (ctx) => {
     try {
         const user = ctx.session.user
+        const nameFormatter = (text) => text.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        
         const text =
-            `<b>👤 To'liq ismingiz:</b> ${ctx.from.first_name} ${ ctx.from.last_name ? ctx.from.last_name : '' }\n\n`+
+            `<b>👤 To'liq ismingiz:</b> ${ nameFormatter(ctx.from.first_name) } ${ ctx.from.last_name ? nameFormatter(ctx.from.last_name) : '' }\n\n`+
             `<b>🌏 Viloyat:</b> ${user.region}\n\n`+
             `<b>🌏 Shahar/tuman:</b> ${user.city}\n\n`+
             `<b>🕔 Eslatma vaqti:</b> ${ user.remind_time === 0 ? "O'z vaqtida" : user.remind_time+' daqiqa oldin' }`

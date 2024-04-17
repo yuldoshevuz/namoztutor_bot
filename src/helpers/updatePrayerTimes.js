@@ -39,4 +39,4 @@ const updatePrayerTimes = async () => {
     }
 }
 
-new cron.CronJob('0 1 * * *', updatePrayerTimes, null, true, 'Asia/Tashkent')
+new cron.CronJob('5 0 * * *', updatePrayerTimes, null, true, 'Asia/Tashkent')

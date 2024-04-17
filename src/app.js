@@ -8,10 +8,15 @@ const app = express()
 
 app.use(express.json())
 
-app.use(bot.webhookCallback('/secret-path'))
+app.use('/namozvaqtlari_reminderbot', bot.webhookCallback('/secret-path'))
 bot.telegram.setWebhook(SERVER_URL)
 
-app.get('/', (req, res) => {
+//app.use((req, res, next) => {
+//    res.send(req.url)
+//    next()
+//})
+
+app.get('/namozvaqtlari_reminderbot', (req, res) => {
     res.status(200).json({
         ok: true,
         message: "Bot running"

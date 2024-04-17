@@ -65,7 +65,7 @@ sendMessageUsersScene.action( async (data, ctx) => {
 
                 const text =
                     `Xabar <b>${count.active}</b> ta foydalanuvchiga muvaffaqiyatli yuborildi. ✅ `+
-                    `${ count.inactive? `<b>${count.inactive}</b> ta foydalanuvchiga yuborilmadi, ❌ chunki ular botni bloklagan yoki to'liq ro'yxatdan o'tmagan` :'' }`
+                    `${ count.inactive? `<b>${count.inactive}</b> ta foydalanuvchiga yuborilmadi, ❌` :'' }`
                 
                 await ctx.editMessageReplyMarkup({})
                 await ctx.replyWithHTML(

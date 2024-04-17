@@ -11,15 +11,17 @@ app.use(express.json())
 app.use('/namozvaqtlari_reminderbot', bot.webhookCallback('/secret-path'))
 bot.telegram.setWebhook(SERVER_URL)
 
-//app.use((req, res, next) => {
-//    res.send(req.url)
-//    next()
-//})
-
 app.get('/namozvaqtlari_reminderbot', (req, res) => {
     res.status(200).json({
         ok: true,
         message: "Bot running"
+    })
+})
+
+app.use((req, res) => {
+    res.status(404).json({
+        ok: false,
+        message: "Page not found"
     })
 })
 

@@ -40,8 +40,8 @@ adminScene.hears('📊 Statistika', async (ctx) => {
 
         await ctx.replyWithHTML(
             `<b>📊 Barcha foydalanuvchilar soni:</b> ${count.total} ta\n\n` +
-            `<b>🟢 Aktiv foydalanuvchilar:</b> ${count.active} ta\n\n` +
-            `<b>🔴 Aktiv bo'lmagan foydalanuvchilar:</b> ${count.inactive} ta`
+            `<b>🟢 Aktiv bo'lgan:</b> ${count.active} ta\n\n` +
+            `<b>🔴 Aktiv bo'lmagan:</b> ${count.inactive} ta`
         )
     } catch (error) {
         errorHandler(error, ctx)

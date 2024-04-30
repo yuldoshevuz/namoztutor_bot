@@ -1,6 +1,6 @@
 module.exports = {
     apps: [{
-        name: "Namoz vaqtlari App",
+        name: "Namoz tutor bot",
         script: "./src/app.js",
         args: "limit"
     }]

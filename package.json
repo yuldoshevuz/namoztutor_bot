@@ -1,5 +1,5 @@
 {
-  "name": "namozvaqtlari_reminderbot",
+  "name": "namoztutor_bot",
   "version": "2.0.0",
   "description": "Prayer time reminder bot",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yuldoshevuz/namozvaqtlari_reminder_bot.git"
+    "url": "https://github.com/yuldoshevuz/namoztutor_bot.git"
   },
   "keywords": [
     "Namoz",

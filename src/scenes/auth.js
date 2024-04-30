@@ -116,14 +116,16 @@ authScene.enter(async (ctx) => {
 
         if (prayerTimes.length) {
             await ctx.replyWithHTML(
-                "<b>👋 Assalomu alaykum namoz vaqtlarini eslatuvchi botga hush kelibsiz.</b>\n\n" +
+                `<b>Assalomu alaykum! 👋</b>\n`+
+                "Kundalik ibodatlaringiz sizga yordam beruvchi Telegram botimizga xush kelibsiz.\n\n"+
                 "<i>Iltimos yashash hududingizni tanlang!</i>",
                 keyboards.regions(regions, false)
             )
         } else {
             await writePrayerTimes()
             await ctx.replyWithHTML(
-                "<b>👋 Assalomu alaykum namoz vaqtlarini eslatuvchi botga hush kelibsiz.</b>\n\n" +
+                `<b>Assalomu alaykum! 👋</b>\n`+
+                "Kundalik ibodatlaringiz sizga yordam beruvchi Telegram botimizga xush kelibsiz.\n\n"+
                 "<i>Iltimos yashash hududingizni tanlang!</i>",
                 keyboards.regions(regions, false)
             )

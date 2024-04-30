@@ -14,7 +14,7 @@ settingsScene.enter(async ctx => ctx.reply('⚙️ Sozlamalar', keyboards.settin
 
 settingsScene.hears('⬅️ Ortga', ctx => ctx.scene.enter('start'))
 
-settingsScene.hears("🌏 Shaharni o'zgartirish", async (ctx) => {
+settingsScene.hears("🏙 Shaharni o'zgartirish", async (ctx) => {
     try {
         await ctx.reply(ctx.message.text, { reply_markup: { remove_keyboard: true } })
         await ctx.reply(
@@ -26,7 +26,7 @@ settingsScene.hears("🌏 Shaharni o'zgartirish", async (ctx) => {
     }
 })
 
-settingsScene.hears("🕔 Eslatma vaqtini o'zgartirish", async (ctx) => {
+settingsScene.hears("🕰 Eslatma vaqtini o'zgartirish", async (ctx) => {
     try {
         await ctx.reply(ctx.message.text, { reply_markup: { remove_keyboard: true } })
         await ctx.reply("Eslatma vaqtini o'zgartirish", keyboards.reminder_time(true, ctx.session.user.remind_time))

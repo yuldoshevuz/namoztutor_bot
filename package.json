@@ -1,6 +1,6 @@
 {
   "name": "namozvaqtlari_reminderbot",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Prayer time reminder bot",
   "main": "index.js",
   "scripts": {

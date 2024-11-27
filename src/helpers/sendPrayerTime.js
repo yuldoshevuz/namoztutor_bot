@@ -9,10 +9,16 @@ const PrayerTimes = require('../models/PrayerTimes')
 
 new cron.CronJob('* * * * *', async () => {
     try {
-        const users = await User.find({ active: true, city: { $ne: null } })
+        const users = await User.find({ active: true })
         const now = moment(new Date()).format('HH:mm')
 
         users.forEach(async (user) => {
+						if (user.active && !user.city) {
+							  return await User.findOneAndUpdate({ chat_id: user.id }, {
+								  active: false
+						    })
+						}
+
             const prayertimes = await PrayerTimes.findOne({ region: user.region, city: user.city })						
 						const { times } = prayertimes.daily
             const remindTime = user.remind_time

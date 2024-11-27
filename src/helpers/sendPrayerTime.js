@@ -13,7 +13,7 @@ new cron.CronJob('* * * * *', async () => {
         const now = moment(new Date()).format('HH:mm')
 
         users.forEach(async (user) => {
-            const prayertimes = await PrayerTimes.findOne({ region: user.region, city: user.city })
+            const prayertimes = await PrayerTimes.findOne({ city: user.city })
             const { times } = prayertimes.daily
             const remindTime = user.remind_time
 

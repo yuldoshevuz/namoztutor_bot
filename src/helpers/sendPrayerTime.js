@@ -9,12 +9,12 @@ const PrayerTimes = require('../models/PrayerTimes')
 
 new cron.CronJob('* * * * *', async () => {
     try {
-        const users = await User.find({ active: true })
+        const users = await User.find({ active: true, city: { $ne: null } })
         const now = moment(new Date()).format('HH:mm')
 
         users.forEach(async (user) => {
-            const prayertimes = await PrayerTimes.findOne({ city: user.city })
-            const { times } = prayertimes.daily
+            const prayertimes = await PrayerTimes.findOne({ region: user.region, city: user.city })						
+						const { times } = prayertimes.daily
             const remindTime = user.remind_time
 
             const bomdod = convertRemindTime(times.tong_saharlik, remindTime)

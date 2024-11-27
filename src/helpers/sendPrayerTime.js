@@ -14,9 +14,7 @@ new cron.CronJob('* * * * *', async () => {
 
         users.forEach(async (user) => {
 						if (user.active && !user.city) {
-							  return await User.findOneAndUpdate({ id: user.id }, {
-								  active: false
-						    })
+								return await User.findByIdAndUpdate(user.id, { active: false });
 						}
 
             const prayertimes = await PrayerTimes.findOne({ region: user.region, city: user.city })						

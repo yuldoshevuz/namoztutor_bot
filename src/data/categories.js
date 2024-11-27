@@ -1840,7 +1840,7 @@ const categories = [
                         text: "<b>1. Niyat</b>\n\n"+
                             "Xufton namozi to'rt rakat farz va ikki rakat sunnat bo'lib, jami olti rakatdan iborat.\n\n"+
                             "Xufton namozi (Peshin namozining to'rt rakat farzi kabi) quyidagicha o'qiladi:\n\n"+
-                            "<b>«Alloh rizoligi uchun qibla tomonga yuzlanib, bugungi asr namozining to'rt rakat farzini o'z vaqtida o'qishni niyat qildim»</b>, deb ko'ngildan o'tkaziladi.",
+                            "<b>«Alloh rizoligi uchun qibla tomonga yuzlanib, bugungi xufton namozining to'rt rakat farzini o'z vaqtida o'qishni niyat qildim»</b>, deb ko'ngildan o'tkaziladi.",
                         media: "https://t.me/botcontents/19"
                     },
                     {

@@ -14,7 +14,7 @@ new cron.CronJob('* * * * *', async () => {
 
         users.forEach(async (user) => {
 						if (user.active && !user.city) {
-							  return await User.findOneAndUpdate({ chat_id: user.id }, {
+							  return await User.findOneAndUpdate({ id: user.id }, {
 								  active: false
 						    })
 						}

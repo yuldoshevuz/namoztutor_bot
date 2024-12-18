@@ -10,6 +10,8 @@ const PrayerTimes = require('../models/PrayerTimes')
 const formatApiData = require('./formatApiData')
 const environments = require('../config/environments')
 
+writePrayerTimes()
+
 const updatePrayerTimes = async () => {
     try {
         const prayerTimes = await PrayerTimes.find()

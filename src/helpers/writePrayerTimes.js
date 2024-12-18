@@ -13,22 +13,14 @@ const writePrayerTimes = async () => {
 
         if (!prayerTimes || !prayerTimes.length) {
             cities.forEach(async city => {
-                const date = new Date()
-
-                const daily = await axios.get(`${environments.API_BASE_URL}/api/present/day?region=${city.name}`)
-                const weekly = await axios.get(`${environments.API_BASE_URL}/api/present/week?region=${city.name}`)
-                const monthly = await axios.get(`${environments.API_BASE_URL}/api/monthly?region=${city.name}&month=${date.getMonth() + 1}`)
+                const prayerTimes = await axios.get(`${environments.API_BASE_URL}/api/present/day?region=${city.name}`)
     
-                const dailyData = formatApiData(daily.data, 'daily')
-                const weeklyData = formatApiData(weekly.data, 'weekly')
-                const monthlyData = formatApiData(monthly.data, 'monthly')
+                const dailyData = formatApiData(prayerTimes.data);
 
                 await PrayerTimes.create({
                     region: city.region,
                     city: city.name,
                     daily: dailyData,
-                    weekly: weeklyData,
-                    monthly: monthlyData
                 })
             })
         }

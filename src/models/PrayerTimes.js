@@ -23,15 +23,7 @@ const prayerTimesSchema = new Schema({
     daily: {
         date: dateSchema,
         times: timesSchema
-    },
-    weekly: [{
-        date: { type: dateSchema },
-        times: { type: timesSchema }
-    }],
-    monthly: [{
-        date: { type: dateSchema },
-        times: { type: timesSchema }
-    }]
+    }
 }, { timestamps: true, versionKey: false })
 
 const PrayerTimes = model('PrayerTimes', prayerTimesSchema)

@@ -18,21 +18,13 @@ const updatePrayerTimes = async () => {
 
         if (prayerTimes && prayerTimes.length) {
             cities.forEach(async city => {
-                const daily = await axios.get(`${environments.API_BASE_URL}/api/present/day?region=${city.name}`)
-                const weekly = await axios.get(`${environments.API_BASE_URL}/api/present/week?region=${city.name}`)
-                const monthly = await axios.get(`${environments.API_BASE_URL}/api/monthly?region=${city.name}&month=${new Date().getMonth() + 1}`)
+                const prayertimes = await axios.get(`${environments.API_BASE_URL}/api/present/day?region=${city.name}`)
 
-                const dailyData = formatApiData(daily.data, 'daily')
-                const weeklyDaya = formatApiData(weekly.data, 'weekly')
-                const monthlyData = formatApiData(monthly.data, 'monthly')
+                const dailyData = formatApiData(prayertimes.data)
 
                 await PrayerTimes.findOneAndUpdate({
                     region: city.region, city: city.name
-                }, {
-                    daily: dailyData,
-                    weekly: weeklyDaya,
-                    monthly: monthlyData
-                })
+                }, { daily: dailyData })
             })
         } else {
             await writePrayerTimes()

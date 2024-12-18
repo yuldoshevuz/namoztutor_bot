@@ -5,7 +5,8 @@ const {
     ERROR_CHANNEL,
     PORT,
     SERVER_URL,
-    ADMINS
+    ADMINS,
+    API_BASE_URL,
 } = process.env
 
 module.exports = {
@@ -13,6 +14,7 @@ module.exports = {
     DB_URI,
     ERROR_CHANNEL,
     PORT: PORT || 4000,
+    API_BASE_URL,
     SERVER_URL,
     ADMINS: ADMINS ? ADMINS.split(',') : []
 }

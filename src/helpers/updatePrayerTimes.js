@@ -8,6 +8,7 @@ const cities = require('../data/cities')
 
 const PrayerTimes = require('../models/PrayerTimes')
 const formatApiData = require('./formatApiData')
+const environments = require('../config/environments')
 
 const updatePrayerTimes = async () => {
     try {
@@ -15,9 +16,9 @@ const updatePrayerTimes = async () => {
 
         if (prayerTimes && prayerTimes.length) {
             cities.forEach(async city => {
-                const daily = await axios.get(`https://islomapi.uz/api/present/day?region=${city.name}`)
-                const weekly = await axios.get(`https://islomapi.uz/api/present/week?region=${city.name}`)
-                const monthly = await axios.get(`https://islomapi.uz/api/monthly?region=${city.name}&month=${new Date().getMonth() + 1}`)
+                const daily = await axios.get(`${environments.API_BASE_URL}/api/present/day?region=${city.name}`)
+                const weekly = await axios.get(`${environments.API_BASE_URL}/api/present/week?region=${city.name}`)
+                const monthly = await axios.get(`${environments.API_BASE_URL}/api/monthly?region=${city.name}&month=${new Date().getMonth() + 1}`)
 
                 const dailyData = formatApiData(daily.data, 'daily')
                 const weeklyDaya = formatApiData(weekly.data, 'weekly')

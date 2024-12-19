@@ -13,19 +13,22 @@ const environments = require('../config/environments')
 writePrayerTimes()
 
 const updatePrayerTimes = async () => {
+
+
+  console.log("Prayer times update started")
+
     try {
         const prayerTimes = await PrayerTimes.find()
 
         if (prayerTimes && prayerTimes.length) {
             cities.forEach(async city => {
-                const prayertimes = await axios.get(`${environments.API_BASE_URL}/api/present/day?region=${city.name}`)
+                const newPrayerTimes = await axios.get(`${environments.API_BASE_URL}/api/present/day?region=${city.name}`)
 
-                const dailyData = formatApiData(prayertimes.data)
+                const dailyData = formatApiData(newPrayerTimes.data)
 
-                await PrayerTimes.findOneAndUpdate({
-                    region: city.region, city: city.name
-                }, { daily: dailyData })
+                await PrayerTimes.findOneAndUpdate({ city: city.name }, { daily: dailyData })
             })
+            console.log("Updated prayer times")
         } else {
             await writePrayerTimes()
         }
